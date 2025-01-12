@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal creation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* font-family: 'Josefin Sans', bold, sans-serif; */
+            text-decoration: none;
+        }
+
+        header {
+            background-color: #4CAF50;
+            height: 150px;
+            
+        }
+
+        .image{
+            height: 150px;
+        }
+
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brow {
+            height: 40px;
+            background: olive;
+            margin-bottom: 20px;
+        }
+
+        .brow li {
+            display: inline;
+            margin-right: 30px;
+            margin-left: 30px;
+            
+        }
+
+        .brow a {
+            color: white;
+        }
+
+        .horizontal-list{
+            text-align: center;
+        }
+
+        .nav-links-block {
+            flex: 1;
+            text-align: right;
+        }
+
+        .nav-links-block ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .nav-links-block ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .nav-links-block ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links-block ul li:hover::after {
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+       
+        .container {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 500px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .ingredients {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 10px;
+        }
+        .ingredient {
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .ingredient img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+        .ingredient:hover img {
+            border-color: #4CAF50;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border: 1px solid #d4edda;
+            border-radius: 4px;
+        }
+
+        .footer {
+            
+            
+            background-color: olive;
+
+            padding: 50px 0 30px 0;
+            
+            text-align: center;
+        }
+
+        .footer li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer p {
+            color: #fff;
+        }
+
+        .footer ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .footer ul li:hover::after {
+            width: 100%;
+        }
+
+        .img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            min-width: 50%;
+        }
+
+        @font-face{
+            font-family: 'bubble-love';
+            src: url(./my_images/bubble-love/Bubble_Love_Demo.otf)
+            /* url(./my_images/henny-penny/HennyPenny-Regular.otf),
+            url(./my_images/henny-penny/HennyPenny-Regular.ttf) */
+        }
+
+        .text{
+            font-feature-settings: 'clig' off,'liga' off;
+            font-size: 30px;
+            font-weight: 400;
+            font-family: 'bubble-love', sans-serif;
+            color: rgb(8, 128, 92);
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: rgb(4, 51, 41);
+        }
+    </style>
+</head>
+<body style="background-image: url(./my_images/pattern.png);">
+
+    <header>
+
+        <div class="image" style="background-image: url(./my_images/olives.jpg); background-size: cover;">
+            
+        
+        </div>
+        
+    
+        <div class="brow">
+            <div class="nav-links-block">
+                <ul class="horizontal-list">
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="food.html">CREATING YOUR DISH</a></li>
+                    <li><a href="calculate_per_person.html">CALCULATE YOUR PERSONAL CALORIES</a></li>
+                    <li><a href="https://elearning.gtu.ge/">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100011393031018">CONTACT</a></li>
+                </ul>
+            </div>
+    
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="content" style="background-image: url(./my_images/lines.jpg);">
+            
+            <div class="text">
+            <h1>Welcome to my site!</h1>
+            <h2>this is the main page</h2>
+            <br>
+            <h2>Go further to create the dish and see how many calories fats, carbs and protein it has</h2>
+            </div>
+                
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <ul class="footer-horizontal-list">
+            <li><a href="food.html">Main Page</a></li>
+            <li><a href="https://www.instagram.com/taste.tbilisi/?hl=en">Festival</a></li>
+            <li><a href="https://www.reddit.com/r/Damnthatsinteresting/comments/1ble8ty/this_comment_holds_the_world_record_for_most/">Ratings</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100011393031018">Contact</a></li>
+            <li><a href="">App</a></li>
+            <li><a href="https://policies.google.com/terms?hl=en-US">Terms</a></li>
+        </ul>
+        <br><br>
+        <p>Meal calculator © 2015-2024</p>
+    </div>
+</body>
+</html>

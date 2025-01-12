@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculation per person</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', bold, sans-serif;
+            text-decoration: none;
+        }
+
+        header {
+            background-color: #4CAF50;
+            height: 150px;
+            
+        }
+
+        .image{
+            height: 150px;
+        }
+
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brow {
+            height: 40px;
+            background: olive;
+            margin-bottom: 20px;
+        }
+
+        .brow li {
+            display: inline;
+            margin-right: 30px;
+            margin-left: 30px;
+            
+        }
+
+        .brow a {
+            color: white;
+        }
+
+        .horizontal-list{
+            text-align: center;
+        }
+
+        .nav-links-block {
+            flex: 1;
+            text-align: right;
+        }
+
+        .nav-links-block ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .nav-links-block ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .nav-links-block ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links-block ul li:hover::after {
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+     
+        .container {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 98%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border: 1px solid #d4edda;
+            border-radius: 4px;
+        }
+
+        .footer {
+            
+            
+            background-color: olive;
+
+            padding: 50px 0 30px 0;
+            
+            text-align: center;
+        }
+
+        .footer li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer p {
+            color: #fff;
+        }
+
+        .footer ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .footer ul li:hover::after {
+            width: 100%;
+        }
+
+        .select{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body style="background-image: url(./my_images/food.jpg);">
+    <header>
+
+        <div class="image" style="background-image: url(./my_images/olives.jpg); background-size: cover;">
+            
+        
+        </div>
+        
+    
+        <div class="brow">
+            <div class="nav-links-block">
+                <ul class="horizontal-list">
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="food.html">CREATING YOUR DISH</a></li>
+                    <li><a href="calculate_per_person.html">CALCULATE YOUR PERSONAL CALORIES</a></li>
+                    <li><a href="https://elearning.gtu.ge/">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100011393031018">CONTACT</a></li>
+                </ul>
+            </div>
+    
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h2>Расчёт рациона</h2>
+            <form id="dietForm">
+                <label for="age">Возраст:</label>
+                <input type="number" id="age" name="age" placeholder="Введите ваш возраст" required>
+                
+                <label for="weight">Вес (кг):</label>
+                <input type="number" id="weight" name="weight" placeholder="Введите ваш вес" required>
+                
+                <label for="height">Рост (см):</label>
+                <input type="number" id="height" name="height" placeholder="Введите ваш рост" required>
+
+                <label for="activity">Уровень активности:</label>
+                <select id="activity" name="activity" class="select">
+                    <option value="low">Низкий</option>
+                    <option value="medium">Средний</option>
+                    <option value="high">Высокий</option>
+                </select>
+
+                <input type="submit" value="Рассчитать рацион">
+            </form>
+            <div class="result" id="result"></div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul class="footer-horizontal-list">
+            <li><a href="food.html">Main Page</a></li>
+            <li><a href="https://www.instagram.com/taste.tbilisi/?hl=en">Festival</a></li>
+            <li><a href="https://www.reddit.com/r/Damnthatsinteresting/comments/1ble8ty/this_comment_holds_the_world_record_for_most/">Ratings</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100011393031018">Contact</a></li>
+            <li><a href="">App</a></li>
+            <li><a href="https://policies.google.com/terms?hl=en-US">Terms</a></li>
+        </ul>
+        <br><br>
+        <p>Meal calculator © 2015-2024</p>
+    </div>
+
+
+    <script>
+
+        document.getElementById('result').style.display = "none";
+
+        document.getElementById('dietForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let age = document.getElementById('age').value;
+            let weight = document.getElementById('weight').value;
+            let height = document.getElementById('height').value;
+            let activity = document.getElementById('activity').value;
+
+            let bmr;
+            if (activity === 'low') {
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            } else if (activity === 'medium') {
+                bmr = ((10 * weight) + (6.25 * height) - (5 * age) + 5) * 1.55;
+            } else {
+                bmr = ((10 * weight) + (6.25 * height) - (5 * age) + 5) * 1.9;
+            }
+
+            document.getElementById('result').style.display = "block";
+            document.getElementById('result').innerText = `Ваше суточное потребление калорий: ${Math.round(bmr)} калорий.`;
+        });
+    </script>
+</body>
+</html>

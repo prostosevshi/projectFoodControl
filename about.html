@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal creation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', bold, sans-serif;
+            text-decoration: none;
+        }
+
+        header {
+            background-color: #4CAF50;
+            height: 150px;
+            
+        }
+
+        .image{
+            height: 150px;
+        }
+
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brow {
+            height: 40px;
+            background: olive;
+            margin-bottom: 20px;
+        }
+
+        .brow li {
+            display: inline;
+            margin-right: 30px;
+            margin-left: 30px;
+            
+        }
+
+        .brow a {
+            color: white;
+        }
+
+        .horizontal-list{
+            text-align: center;
+        }
+
+        .nav-links-block {
+            flex: 1;
+            text-align: right;
+        }
+
+        .nav-links-block ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .nav-links-block ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .nav-links-block ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links-block ul li:hover::after {
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+       
+        .container {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+         h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .ingredients {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 10px;
+        }
+        .ingredient {
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .ingredient img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+        .ingredient:hover img {
+            border-color: #4CAF50;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border: 1px solid #d4edda;
+            border-radius: 4px;
+        }
+
+        .footer {
+            
+            
+            background-color: olive;
+
+            padding: 50px 0 30px 0;
+            
+            text-align: center;
+        }
+
+        .footer li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer p {
+            color: #fff;
+        }
+
+        .footer ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .footer ul li:hover::after {
+            width: 100%;
+        }
+
+        .img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            min-width: 50%;
+        }
+
+        .text{
+            font-feature-settings: 'clig' off,'liga' off;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'IBM Plex Sans',Arial,sans-serif;
+            color: #222;
+        }
+    </style>
+</head>
+<body style="background-image: url(./my_images/pattern.png);">
+
+    <header>
+
+        <div class="image" style="background-image: url(./my_images/olives.jpg); background-size: cover;">
+            
+        
+        </div>
+        
+    
+        <div class="brow">
+            <div class="nav-links-block">
+                <ul class="horizontal-list">
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="food.html">CREATING YOUR DISH</a></li>
+                    <li><a href="calculate_per_person.html">CALCULATE YOUR PERSONAL CALORIES</a></li>
+                    <li><a href="https://elearning.gtu.ge/">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100011393031018">CONTACT</a></li>
+                </ul>
+            </div>
+    
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="content" >
+            <img src="./my_images/graph.jpg" alt="" class="img">
+            
+            <div class="text">
+                <p><h1>Углеводы</h1><br>
+                Углеводы — главные поставщики энергии для умственной и физической активности. Различают простые (глюкоза, фруктоза, галактоза, сахароза и др.) и сложные углеводы (крахмалы, пищевые волокна).
+                Клетчатка, или пищевые волокна — особая разновидность сложных углеводов, которая почти не усваивается организмом, но дает сытость и помогает поддерживать здоровье желудочно-кишечного тракта.
+                <br><br>
+                Поступая в организм, большая часть углеводов преобразуется в глюкозу, которая используется клетками для жизненных процессов.
+                <br><br>
+                Традиционно международные организации здравоохранения рекомендуют потреблять 45−65% углеводов от общей калорийности рациона. Допустимые границы этого диапазона еще шире и зависят от особенностей организма, целей и индивидуальных потребностей.
+                <br><br>
+                Как можно чаще отдавайте предпочтение продуктам, содержащим сложные углеводы, — они усваиваются постепенно и не вызывают резких скачков глюкозы, в отличие от простых углеводов. Это важно для поддержания стабильного настроения и предотвращения резких перепадов голода и сытости.
+                Основные источники сложных углеводов: крупы, фрукты, овощи, бобовые, картофель, цельнозерновые продукты.
+                <br><br>
+                Простые углеводы содержатся в столовом сахаре, меде и сиропах, выпечке, конфетах и других сладостях, соках и сладких напитках, молочных продуктах.</p>
+            </div>
+
+                <br><br>
+            
+            <div class="text"><p><h1>Белки</h1>
+                <br>
+                Белки состоят из соединенных цепочек аминокислот — «строительных» веществ для тела человека. В организме используется двадцать видов аминокислот, девять из которых не могут быть синтезированы телом человека и должны поступать из еды (незаменимые аминокислоты).
+                <br><br>
+                Все незаменимые аминокислоты содержатся в животном белке. Вегетарианцы тоже могут получить их в полном объеме при сочетании растительных продуктов, богатых белком.
+                <br><br>
+                Белки выполняют гормональную, ферментативную и защитную функции в организме. Из них состоят соединительные ткани, мышцы, кожа, волосы и другие органы. Белки не являются прямым источником энергии для организма, но могут быть использованы, когда нет альтернатив или когда усвоение жиров и углеводов нарушено.
+                <br><br>
+                Количество белков, необходимых человеку, разнится в среднем от 0,8 до 2,2 г на килограмм веса или 10−35% от общей калорийности рациона. Индивидуальная норма зависит от возраста, пола, активности, периода жизни и других факторов.
+                Продукты с высоким содержанием белка: мясо и птица, рыба и морепродукты, молоко и молочные продукты, яйца, бобовые и крупы, орехи и семена, соевые продукты.
+                <br><br><br>
+                <h1>Жиры</h1>
+                <br>
+                Жиры — самый энергоемкий макронутриент. Они помогают организму в производстве гормонов, усвоении нутриентов, клеточном росте, защищают от холода и повреждений.
+                <br><br>
+                В виде жировой ткани организм может сохранять запасы энергии на долгое время, а в период длительного голодания или низкоуглеводного питания жирные кислоты могут стать основным источником энергии. В этом случае запускается процесс кетоза, с его помощью организм может функционировать с минимальным количеством углеводов.
+                <br><br>
+                Именно эта особенность организма помогает людям выживать без еды несколько недель.
+                <br><br>
+                Основные виды жиров, или жирных кислот — насыщенные и ненасыщенные.
+                <br><br>
+                По данным исследований, чрезмерное потребление насыщенных жиров повышает риск сердечно-сосудистых заболеваний и диабета (но, возможно, это не так).
+                Основные источники насыщенных жиров — животные продукты (мясо, сливочное масло, сыры и другие молочные продукты, яйца), а также кокосовое и пальмовое масла.
+                <br><br>
+                Употребление ненасыщенных жиров помогает регулировать метаболизм, сохранять эластичность клеточных мембран, улучшает кровообращение, они важны для роста и регенерации клеток.
+                Основные источники ненасыщенных жиров: растительные масла, орехи и семена, авокадо, маслины, рыба и птица.
+                <br><br>
+                Отдельно выделяют трансжиры — разновидность ненасыщенных жирных кислот, структура которых делает их устойчивыми к окислению (дольше хранятся и остаются твердыми при комнатной температуре).
+                <br><br>
+                В малых количествах трансжиры присутствуют в натуральных мясных и молочных продуктах. В больших — входят в состав некоторых видов маргарина, спредов и кулинарного жира, то есть содержатся в большинстве кондитерских изделий и полуфабрикатов. Часто трансжиры добавляют для увеличения жирности творожных масс, плавленых сырков, мороженого.
+                <br><br>
+                Традиционная рекомендация по потреблению жиров: не более 30−35% от общей калорийности рациона, из которых до 10% — насыщенные жиры. Промышленные трансжиры рекомендуется исключать из рациона полностью.</p>
+            </div>
+                
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <ul class="footer-horizontal-list">
+            <li><a href="food.html">Main Page</a></li>
+            <li><a href="https://www.instagram.com/taste.tbilisi/?hl=en">Festival</a></li>
+            <li><a href="https://www.reddit.com/r/Damnthatsinteresting/comments/1ble8ty/this_comment_holds_the_world_record_for_most/">Ratings</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100011393031018">Contact</a></li>
+            <li><a href="">App</a></li>
+            <li><a href="https://policies.google.com/terms?hl=en-US">Terms</a></li>
+        </ul>
+        <br><br>
+        <p>Meal calculator © 2015-2024</p>
+    </div>
+</body>
+</html>

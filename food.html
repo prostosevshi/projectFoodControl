@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal creation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', bold, sans-serif;
+            text-decoration: none;
+        }
+
+        header {
+            background-color: #4CAF50;
+            height: 150px;
+            
+        }
+
+        .image{
+            height: 150px;
+        }
+
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brow {
+            height: 40px;
+            background: olive;
+            margin-bottom: 20px;
+        }
+
+        .brow li {
+            display: inline;
+            margin-right: 30px;
+            margin-left: 30px;
+            
+        }
+
+        .brow a {
+            color: white;
+        }
+
+        .horizontal-list{
+            text-align: center;
+        }
+
+        .nav-links-block {
+            flex: 1;
+            text-align: right;
+        }
+
+        .nav-links-block ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .nav-links-block ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .nav-links-block ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links-block ul li:hover::after {
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+       
+        .container {
+            padding-top: 100px;
+            margin-bottom: 100px;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h3{
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .ingredients {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+        .ingredient {
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .ingredient img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+        .ingredient:hover img {
+            border-color: #4CAF50;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border: 1px solid #d4edda;
+            border-radius: 4px;
+            display: flex;
+        }
+
+        .footer {
+            background-color: olive;
+
+            padding: 50px 0 30px 0;
+            
+            text-align: center;
+        }
+
+        .footer li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer p {
+            color: #fff;
+        }
+
+        .footer ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #460e7a;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .footer ul li:hover::after {
+            width: 100%;
+        }
+
+        .btn{
+            padding: 5px;
+            position: absolute;
+            right: 30px;
+            bottom: 33%;
+        }
+
+        .result{
+            position: relative;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body style="background-image: url(./my_images/food.jpg);">
+
+    <header>
+
+        <div class="image" style="background-image: url(./my_images/olives.jpg); background-size: cover;">
+            
+        
+        </div>
+        
+    
+        <div class="brow">
+            <div class="nav-links-block">
+                <ul class="horizontal-list">
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="food.html">CREATING YOUR DISH</a></li>
+                    <li><a href="calculate_per_person.html">CALCULATE YOUR PERSONAL CALORIES</a></li>
+                    <li><a href="https://elearning.gtu.ge/">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100011393031018">CONTACT</a></li>
+                </ul>
+            </div>
+    
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="content">
+            <h2>Выберите ингредиенты для вашего блюда</h2>
+            <h3>Fruits</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="52" data-protein="0.3" data-carbs="14" data-fat="0.2">
+                    <img src="./my_images/food/Red_Apple.png" alt="Apple">
+                    <p>Apple</p>
+                </div>
+                <div class="ingredient" data-calories="89" data-protein="1.1" data-carbs="23" data-fat="0.3">
+                    <img src="./my_images/food/banana.png" alt="Banana">
+                    <p>Banana</p>
+                </div>
+                <div class="ingredient" data-calories="57" data-protein="0.4" data-carbs="15" data-fat="0.1">
+                    <img src="./my_images/food/pear.png" alt="Pear">
+                    <p>Pear</p>
+                </div>
+                <div class="ingredient" data-calories="47" data-protein="0.9" data-carbs="12" data-fat="0.1">
+                    <img src="./my_images/food/orange.jpg" alt="Orange">
+                    <p>Orange</p>
+                </div>
+                <div class="ingredient" data-calories="39" data-protein="0.9" data-carbs="10" data-fat="0.3">
+                    <img src="./my_images/food/peach.jpg" alt="Peach">
+                    <p>Peach</p>
+                </div>
+            </div>
+
+            <h3>Vegetables</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="18" data-protein="0.9" data-carbs="3.9" data-fat="0.2">
+                    <img src="./my_images/food/tomato.PNG" alt="Tomato">
+                    <p>Tomato</p>
+                </div>
+                <div class="ingredient" data-calories="16" data-protein="0.7" data-carbs="3.6" data-fat="0.1">
+                    <img src="./my_images/food/cucumber.png" alt="Cucumber">
+                    <p>Cucumber</p>
+                </div>
+                <div class="ingredient" data-calories="40" data-protein="1.1" data-carbs="9.3" data-fat="0.1">
+                    <img src="./my_images/food/onion.png" alt="Onion">
+                    <p>Onion</p>
+                </div>
+                <div class="ingredient" data-calories="31" data-protein="1" data-carbs="6" data-fat="0.3">
+                    <img src="./my_images/food/bell_pepper.jpg" alt="Bell pepper">
+                    <p>Bell pepper</p>
+                </div>
+                <div class="ingredient" data-calories="77" data-protein="2" data-carbs="17" data-fat="0.1">
+                    <img src="./my_images/food/potato.png" alt="Potato">
+                    <p>Potato</p>
+                </div>
+            </div>
+
+            <h3>Grains</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="130" data-protein="2.4" data-carbs="28" data-fat="0.2">
+                    <img src="./my_images/food/rice.png" alt="Rice">
+                    <p>Rice</p>
+                </div>
+                <div class="ingredient" data-calories="92" data-protein="3.4" data-carbs="19.9" data-fat="0.6">
+                    <img src="./my_images/food/buckwheat.jpg" alt="Buckwheat">
+                    <p>Buckwheat</p>
+                </div>
+                <div class="ingredient" data-calories="360" data-protein="12.7" data-carbs="72.8" data-fat="1.1">
+                    <img src="./my_images/food/semolina.png" alt="Semolina">
+                    <p>Semolina</p>
+                </div>
+                <div class="ingredient" data-calories="131" data-protein="5.2" data-carbs="25" data-fat="1.1">
+                    <img src="./my_images/food/pasta.jpg" alt="Pasta">
+                    <p>Pasta</p>
+                </div>
+            </div>
+
+            <h3>Greens</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="23" data-protein="2.1" data-carbs="3.7" data-fat="0.5">
+                    <img src="./my_images/food/coriander.png" alt="Coriander">
+                    <p>Coriander</p>
+                </div>
+                <div class="ingredient" data-calories="36" data-protein="3" data-carbs="6" data-fat="0.8">
+                    <img src="./my_images/food/parsley.jpg" alt="Parsley">
+                    <p>Parsley</p>
+                </div>
+                <div class="ingredient" data-calories="20" data-protein="2.2" data-carbs="3.9" data-fat="0.1">
+                    <img src="./my_images/food/asparagus.jpg" alt="Asparagus">
+                    <p>Asparagus</p>
+                </div>
+                <div class="ingredient" data-calories="43" data-protein="3.5" data-carbs="7" data-fat="1.1">
+                    <img src="./my_images/food/dill.jpg" alt="Dill">
+                    <p>Dill</p>
+                </div>
+                <div class="ingredient" data-calories="99" data-protein="1.8" data-carbs="25" data-fat="0.5">
+                    <img src="./my_images/food/t_grass.jpg" alt="Lemongrass">
+                    <p>Lemongrass</p>
+                </div>
+            </div>
+
+            <h3>Dairy</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="214" data-protein="2.4" data-carbs="4.6" data-fat="20">
+                    <img src="./my_images/food/sour_cream.jpg" alt="Sour cream">
+                    <p>Sour cream</p>
+                </div>
+                <div class="ingredient" data-calories="61" data-protein="3.5" data-carbs="4.7" data-fat="3.3">
+                    <img src="./my_images/food/Yoghurt.jpg" alt="Yoghurt">
+                    <p>Yoghurt</p>
+                </div>
+                <div class="ingredient" data-calories="403" data-protein="24.9" data-carbs="1.3" data-fat="33.1">
+                    <img src="./my_images/food/cheese.png" alt="Cheese">
+                    <p>Cheese</p>
+                </div>
+                <div class="ingredient" data-calories="98" data-protein="11.1" data-carbs="3.4" data-fat="4.3">
+                    <img src="./my_images/food/cottage_cheese.png" alt="Cottage cheese">
+                    <p>Cottage cheese</p>
+                </div>
+                <div class="ingredient" data-calories="717" data-protein="0.9" data-carbs="0.1" data-fat="81">
+                    <img src="./my_images/food/butter.jpg" alt="Butter">
+                    <p>Butter</p>
+                </div>
+            </div>
+
+            <h3>Meat</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="165" data-protein="31" data-carbs="0" data-fat="3.6">
+                    <img src="./my_images/food/chicken.jpg" alt="Chicken">
+                    <p>Chicken</p>
+                </div>
+                <div class="ingredient" data-calories="250" data-protein="26" data-carbs="0" data-fat="17">
+                    <img src="./my_images/food/beef.jpg" alt="Beef">
+                    <p>Beef</p>
+                </div>
+                <div class="ingredient" data-calories="143" data-protein="26" data-carbs="0" data-fat="3.5">
+                    <img src="./my_images/food/pork.png" alt="Pork">
+                    <p>Pork</p>
+                </div>
+                <div class="ingredient" data-calories="208" data-protein="20" data-carbs="0" data-fat="13">
+                    <img src="./my_images/food/fish.jpg" alt="Fish">
+                    <p>Fish</p>
+                </div>
+                <div class="ingredient" data-calories="250" data-protein="25" data-carbs="0" data-fat="16">
+                    <img src="./my_images/food/lamb.png" alt="Lamb">
+                    <p>Lamb</p>
+                </div>
+            </div>
+
+            <h3>Sauces</h3> <hr>
+            <div class="ingredients">
+                <div class="ingredient" data-calories="680" data-protein="0.9" data-carbs="0.6" data-fat="75">
+                    <img src="./my_images/food/mayo.jpg" alt="Mayo">
+                    <p>Mayo</p>
+                </div>
+                <div class="ingredient" data-calories="112" data-protein="1.3" data-carbs="25.8" data-fat="0.2">
+                    <img src="./my_images/food/ketchup.png" alt="Ketchup">
+                    <p>Ketchup</p>
+                </div>
+                <div class="ingredient" data-calories="66" data-protein="1.6" data-carbs="12" data-fat="0.5">
+                    <img src="./my_images/food/tkemali.jpg" alt="Tkemali">
+                    <p>Tkemali</p>
+                </div>
+                <div class="ingredient" data-calories="65" data-protein="1.2" data-carbs="12" data-fat="1.2">
+                    <img src="./my_images/food/satsebeli.png" alt="Satsebeli">
+                    <p>Satsebeli</p>
+                </div>
+                <div class="ingredient" data-calories="53" data-protein="8" data-carbs="4.9" data-fat="0.6">
+                    <img src="./my_images/food/soy.jpg" alt="Soy">
+                    <p>Soy</p>
+                </div>
+            </div>
+
+            <div class="result" id="result">
+                <div>
+                    <p>Калории: <span id="totalCalories">0</span></p>
+                    <p>Белки: <span id="totalProtein">0</span> г</p>
+                    <p>Углеводы: <span id="totalCarbs">0</span> г</p>
+                    <p>Жиры: <span id="totalFat">0</span> г</p>
+                </div>
+                <div>
+                    <button onclick="reset()" class="btn">Reset</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul class="footer-horizontal-list">
+            <li><a href="food.html">Main Page</a></li>
+            <li><a href="https://www.instagram.com/taste.tbilisi/?hl=en">Festival</a></li>
+            <li><a href="https://www.reddit.com/r/Damnthatsinteresting/comments/1ble8ty/this_comment_holds_the_world_record_for_most/">Ratings</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100011393031018">Contact</a></li>
+            <li><a href="">App</a></li>
+            <li><a href="https://policies.google.com/terms?hl=en-US">Terms</a></li>
+        </ul>
+        <br><br>
+        <p>Meal calculator © 2015-2024</p>
+    </div>
+
+    <div id="ingredientModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Сколько граммов вы хотите добавить?</p> <br>
+            <input type="number" id="ingredientWeight" placeholder="Введите вес в граммах">
+            <button id="addIngredientButton">Добавить</button>
+        </div>
+    </div>
+
+    <script>
+        /* document.querySelectorAll('.ingredient').forEach(item => {
+            item.addEventListener('click', () => {
+                let calories = parseFloat(item.getAttribute('data-calories'));
+                let protein = parseFloat(item.getAttribute('data-protein'));
+                let carbs = parseFloat(item.getAttribute('data-carbs'));
+                let fat = parseFloat(item.getAttribute('data-fat'));
+
+                let totalCalories = parseFloat(document.getElementById('totalCalories').innerText);
+                let totalProtein = parseFloat(document.getElementById('totalProtein').innerText);
+                let totalCarbs = parseFloat(document.getElementById('totalCarbs').innerText);
+                let totalFat = parseFloat(document.getElementById('totalFat').innerText);
+
+                document.getElementById('totalCalories').innerText = totalCalories + calories;
+                document.getElementById('totalProtein').innerText = totalProtein + protein;
+                document.getElementById('totalCarbs').innerText = totalCarbs + carbs;
+                document.getElementById('totalFat').innerText = totalFat + fat;
+            });
+        }); */
+
+        let selectedIngredient = null;
+
+        document.querySelectorAll('.ingredient').forEach(item => {
+            item.addEventListener('click', () => {
+                selectedIngredient = item;
+                document.getElementById('ingredientModal').style.display = "block";
+            });
+        });
+
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('ingredientModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('ingredientModal')) {
+                document.getElementById('ingredientModal').style.display = "none";
+            }
+        }
+
+        document.getElementById('addIngredientButton').onclick = function() {
+            let weight = parseFloat(document.getElementById('ingredientWeight').value);
+            if (isNaN(weight) || weight <= 0) {
+                alert("Пожалуйста, введите корректное значение веса.");
+                return;
+            }
+
+            let calories = parseFloat(selectedIngredient.getAttribute('data-calories'));
+            let protein = parseFloat(selectedIngredient.getAttribute('data-protein'));
+            let carbs = parseFloat(selectedIngredient.getAttribute('data-carbs'));
+            let fat = parseFloat(selectedIngredient.getAttribute('data-fat'));
+
+            let totalCalories = parseFloat(document.getElementById('totalCalories').innerText);
+            let totalProtein = parseFloat(document.getElementById('totalProtein').innerText);
+            let totalCarbs = parseFloat(document.getElementById('totalCarbs').innerText);
+            let totalFat = parseFloat(document.getElementById('totalFat').innerText);
+
+            let factor = weight / 100;
+
+            document.getElementById('totalCalories').innerText = (totalCalories + calories * factor).toFixed(2);
+            document.getElementById('totalProtein').innerText = (totalProtein + protein * factor).toFixed(2);
+            document.getElementById('totalCarbs').innerText = (totalCarbs + carbs * factor).toFixed(2);
+            document.getElementById('totalFat').innerText = (totalFat + fat * factor).toFixed(2);
+
+            document.getElementById('ingredientModal').style.display = "none";
+            document.getElementById('ingredientWeight').value = '';
+        }
+
+        function reset(){
+            
+                document.getElementById('totalCalories').innerText = 0;
+                document.getElementById('totalProtein').innerText = 0;
+                document.getElementById('totalCarbs').innerText = 0;
+                document.getElementById('totalFat').innerText = 0;
+        }
+    </script>
+</body>
+</html>
